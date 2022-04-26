@@ -2,7 +2,6 @@ import '../styles/reset.css';
 import '../styles/App.css';
 import { useEffect, useState } from 'react';
 import { callToApi } from '../services/api';
-
 function App() {
   const [quotes, setQuotes] = useState([]);
   const [filters, setFilters] = useState({ character: 'Todos' });
@@ -67,32 +66,36 @@ function App() {
       </header>
       <section className="form">
         <form className="form__search">
-          <input
-            type="search"
-            name="search"
-            autoComplete="off"
-            onChange={handleInput}
-          />
-          <select name="character" onChange={handleInput}>
-            <option value="Todos">Todos</option>
-            <option value="Ross">Ross</option>
-            <option value="Monica">Monica</option>
-            <option value="Joey">Joey</option>
-            <option value="Phoebe">Phoebe</option>
-            <option value="Chandler">Chandler</option>
-            <option value="Rachel">Rachel</option>
-          </select>
+          <section className="section_filter">
+            <label htmlFor="search">Filtrar por frase</label>
+            <input
+              type="search"
+              name="search"
+              autoComplete="off"
+              onChange={handleInput}
+            />
+          </section>
+          <section className="section_filter">
+            <label htmlFor="character">Filtrar por personaje</label>
+
+            <select name="character" onChange={handleInput}>
+              <option value="Todos">Todos</option>
+              <option value="Ross">Ross</option>
+              <option value="Monica">Monica</option>
+              <option value="Joey">Joey</option>
+              <option value="Phoebe">Phoebe</option>
+              <option value="Chandler">Chandler</option>
+              <option value="Rachel">Rachel</option>
+            </select>
+          </section>
         </form>
         <form className="form__create" onSubmit={createQuote}>
+          <h2 className="title_newQuote">Añadir una nueva frase</h2>
           <label htmlFor="quote">Frase</label>
           <input type="text" name="quote" />
           <label htmlFor="character">Personaje</label>
           <input type="text" name="character" />
-          <input
-            type="submit"
-            value="Añadir un nuevo personaje"
-            className="submit"
-          />
+          <input type="submit" value="Añadir nueva frase" className="submit" />
         </form>
       </section>
       <ul>{renderList()}</ul>

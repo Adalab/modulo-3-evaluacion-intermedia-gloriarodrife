@@ -3,9 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: grey;
+  color: rgb(165, 162, 162);
 }
-
+.title_newQuote {
+  color: rgb(165, 162, 162);
+  font-size: 1.4rem;
+  border-bottom: 1px solid rgb(185, 183, 183);
+}
 .character {
   color: rgb(190, 236, 120);
 }
@@ -13,20 +17,30 @@
 .form {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
+  padding: 0 60px;
+  font-weight: bold;
+}
+
+.section_filter {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 .form__create {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  width: 180px;
+  width: 250px;
 }
 .form__search {
   display: flex;
   flex-direction: row;
   height: 30px;
   gap: 10px;
+  font-size: 0.9rem;
 }
 ul {
   list-style: none;
@@ -35,10 +49,11 @@ ul {
 
 input {
   border-radius: 4px;
-  color: rgb(193, 188, 188);
+  border: 2px solid rgb(193, 191, 191);
 }
 .submit {
   background-color: rgb(190, 236, 120);
   color: white;
   height: 30px;
+  border: none;
 }
