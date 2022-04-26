@@ -62,9 +62,11 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Frases friends</h1>
-      <section className="forms">
-        <form className="form">
+      <header className="header">
+        <h1>Frases friends</h1>
+      </header>
+      <section className="form">
+        <form className="form__search">
           <input
             type="search"
             name="search"
@@ -81,12 +83,16 @@ function App() {
             <option value="Rachel">Rachel</option>
           </select>
         </form>
-        <form className="create" onSubmit={createQuote}>
+        <form className="form__create" onSubmit={createQuote}>
           <label htmlFor="quote">Frase</label>
           <input type="text" name="quote" />
           <label htmlFor="character">Personaje</label>
           <input type="text" name="character" />
-          <input type="submit" value="Añadir un nuevo personaje" />
+          <input
+            type="submit"
+            value="Añadir un nuevo personaje"
+            className="submit"
+          />
         </form>
       </section>
       <ul>{renderList()}</ul>

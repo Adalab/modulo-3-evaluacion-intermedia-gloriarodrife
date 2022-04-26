@@ -1,19 +1,44 @@
+.header {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+}
+
 .character {
   color: rgb(190, 236, 120);
 }
 
-.forms {
+.form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-around;
   gap: 10px;
 }
-.create {
+.form__create {
   display: flex;
   flex-direction: column;
   gap: 3px;
   width: 180px;
 }
-
+.form__search {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  gap: 10px;
+}
 ul {
   list-style: none;
+  padding: 10px;
+}
+
+input {
+  border-radius: 4px;
+  color: rgb(193, 188, 188);
+}
+.submit {
+  background-color: rgb(190, 236, 120);
+  color: white;
+  height: 30px;
 }
