@@ -14,7 +14,7 @@ function App() {
   const renderList = () => {
     const dataFiltered = getFilteredData();
     return dataFiltered.map((item, index) => (
-      <li key={index}>
+      <li key={index} className="quote">
         {item.quote} - <span className="character">{item.character}</span>
       </li>
     ));
@@ -98,7 +98,7 @@ function App() {
           <input type="submit" value="Añadir nueva frase" className="submit" />
         </form>
       </section>
-      <ul>{renderList()}</ul>
+      <ul className="list">{renderList()}</ul>
     </div>
   );
 }

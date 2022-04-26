@@ -13,15 +13,29 @@
 .character {
   color: rgb(190, 236, 120);
 }
-
+.quote {
+  border: 2px solid rgb(189, 186, 186);
+  width: 450px;
+  border-radius: 4px;
+  padding: 3px;
+}
 .form {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   padding: 0 60px;
   font-weight: bold;
+}
+@media (min-width: 680px) {
+  .form {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 120px;
+  }
+  .list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .section_filter {
@@ -42,9 +56,12 @@
   gap: 10px;
   font-size: 0.9rem;
 }
-ul {
+.list {
   list-style: none;
   padding: 10px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
 }
 
 input {
@@ -56,4 +73,8 @@ input {
   color: white;
   height: 30px;
   border: none;
+}
+
+html {
+  width: 100vw;
 }
