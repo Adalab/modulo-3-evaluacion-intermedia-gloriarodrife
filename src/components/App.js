@@ -1,3 +1,4 @@
+import '../styles/reset.css';
 import '../styles/App.css';
 import { useEffect, useState } from 'react';
 import { callToApi } from '../services/api';
@@ -62,31 +63,32 @@ function App() {
   return (
     <div className="App">
       <h1>Frases friends</h1>
-
-      <form onSubmit={createQuote}>
-        <label htmlFor="quote">Frase</label>
-        <input type="text" name="quote" />
-        <label htmlFor="character">Personaje</label>
-        <input type="text" name="character" />
-        <input type="submit" value="Añadir un nuevo personaje" />
-      </form>
-      <form>
-        <input
-          type="search"
-          name="search"
-          autoComplete="off"
-          onChange={handleInput}
-        />
-        <select name="character" onChange={handleInput}>
-          <option value="Todos">Todos</option>
-          <option value="Ross">Ross</option>
-          <option value="Monica">Monica</option>
-          <option value="Joey">Joey</option>
-          <option value="Phoebe">Phoebe</option>
-          <option value="Chandler">Chandler</option>
-          <option value="Rachel">Rachel</option>
-        </select>
-      </form>
+      <section className="forms">
+        <form className="form">
+          <input
+            type="search"
+            name="search"
+            autoComplete="off"
+            onChange={handleInput}
+          />
+          <select name="character" onChange={handleInput}>
+            <option value="Todos">Todos</option>
+            <option value="Ross">Ross</option>
+            <option value="Monica">Monica</option>
+            <option value="Joey">Joey</option>
+            <option value="Phoebe">Phoebe</option>
+            <option value="Chandler">Chandler</option>
+            <option value="Rachel">Rachel</option>
+          </select>
+        </form>
+        <form className="create" onSubmit={createQuote}>
+          <label htmlFor="quote">Frase</label>
+          <input type="text" name="quote" />
+          <label htmlFor="character">Personaje</label>
+          <input type="text" name="character" />
+          <input type="submit" value="Añadir un nuevo personaje" />
+        </form>
+      </section>
       <ul>{renderList()}</ul>
     </div>
   );
