@@ -54,9 +54,15 @@ function App() {
 
   const createQuote = (event) => {
     event.preventDefault();
+
     const quoteData = [...quotes, newQuote];
-    setQuotes(quoteData);
-    setNew({ quote: '', character: '' });
+
+    if (newQuote.quote === '' || newQuote.character === '') {
+      alert('Falta algún dato!');
+    } else {
+      setQuotes(quoteData);
+      setNew({ quote: '', character: '' });
+    }
   };
 
   const handleInputNew = (event) => {
