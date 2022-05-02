@@ -88,7 +88,7 @@ function App() {
           <section className="section_filter">
             <label htmlFor="character">Filtrar por personaje</label>
 
-            <select name="character" value={filters} onChange={handleInput}>
+            <select name="character" onChange={handleInput}>
               <option value="Todos">Todos</option>
               <option value="Ross">Ross</option>
               <option value="Monica">Monica</option>
