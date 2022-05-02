@@ -1,5 +1,5 @@
 import '../styles/reset.css';
-import '../styles/App.css';
+import '../styles/App.scss';
 import { useEffect, useState } from 'react';
 import { callToApi } from '../services/api';
 function App() {

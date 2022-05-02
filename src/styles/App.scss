@@ -43,18 +43,21 @@
   flex-direction: column;
   gap: 5px;
 }
-.form__create {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  width: 250px;
-}
-.form__search {
-  display: flex;
-  flex-direction: row;
-  height: 30px;
-  gap: 10px;
-  font-size: 0.9rem;
+
+.form {
+  &__create {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 250px;
+  }
+  &__search {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
 }
 .list {
   list-style: none;
