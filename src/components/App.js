@@ -5,6 +5,8 @@ import { callToApi } from '../services/api';
 function App() {
   const [quotes, setQuotes] = useState([]);
   const [filters, setFilters] = useState({ character: 'Todos' });
+  const [newQuote, setNew] = useState({ quote: '', character: '' });
+
   useEffect(() => {
     callToApi().then((response) => {
       setQuotes(response);
@@ -52,12 +54,14 @@ function App() {
 
   const createQuote = (event) => {
     event.preventDefault();
-    // Cogemos los datos del formulario
-    const formData = new FormData(event.target);
-    // Convertimos los datos en formato object
-    const quoteData = Object.fromEntries(formData);
+    const quoteData = [...quotes, newQuote];
+    setQuotes(quoteData);
+    setNew({ quote: '', character: '' });
+  };
 
-    setQuotes([...quotes, quoteData]);
+  const handleInputNew = (event) => {
+    const { name, value } = event.target;
+    setNew({ ...newQuote, [name]: value });
   };
   return (
     <div className="App">
@@ -78,7 +82,7 @@ function App() {
           <section className="section_filter">
             <label htmlFor="character">Filtrar por personaje</label>
 
-            <select name="character" onChange={handleInput}>
+            <select name="character" value={filters} onChange={handleInput}>
               <option value="Todos">Todos</option>
               <option value="Ross">Ross</option>
               <option value="Monica">Monica</option>
@@ -89,13 +93,28 @@ function App() {
             </select>
           </section>
         </form>
-        <form className="form__create" onSubmit={createQuote}>
+        <form className="form__create">
           <h2 className="title_newQuote">Añadir una nueva frase</h2>
           <label htmlFor="quote">Frase</label>
-          <input type="text" name="quote" />
+          <input
+            type="text"
+            name="quote"
+            value={newQuote.quote}
+            onChange={handleInputNew}
+          />
           <label htmlFor="character">Personaje</label>
-          <input type="text" name="character" />
-          <input type="submit" value="Añadir nueva frase" className="submit" />
+          <input
+            type="text"
+            name="character"
+            value={newQuote.character}
+            onChange={handleInputNew}
+          />
+          <input
+            type="submit"
+            value="Añadir nueva frase"
+            className="submit"
+            onClick={createQuote}
+          />
         </form>
       </section>
       <ul className="list">{renderList()}</ul>
